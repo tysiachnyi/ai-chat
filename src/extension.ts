@@ -1,15 +1,13 @@
 import { ExtensionContext, commands, window, ViewColumn } from "vscode";
 import ollama from "ollama";
 
-export function activate(context: ExtensionContext) {
-  // Define a type for messages
-  type Message = {
-    role: string;
-    content: string;
-  };
+type Message = {
+  role: string;
+  content: string;
+};
 
-  // Initialize an array to store the messages
-  let messages: Message[] = [];
+export function activate(context: ExtensionContext) {
+  const messages: Message[] = [];
 
   context.subscriptions.push(
     commands.registerCommand("extension.startChat", () => {
@@ -22,10 +20,8 @@ export function activate(context: ExtensionContext) {
         }
       );
 
-      // Set initial HTML content for the webview
       panel.webview.html = getWebviewContent();
 
-      // Handle messages from the webview
       panel.webview.onDidReceiveMessage(
         async (message) => {
           switch (message.command) {

@@ -17,16 +17,7 @@
         "command": "extension.startChat",
         "title": "Start Chat with AI"
       }
-    ],
-    "views": {
-      "explorer": [
-        {
-          "id": "chatWithAI",
-          "name": "Chat with AI",
-          "icon": "file-icon"
-        }
-      ]
-    }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
